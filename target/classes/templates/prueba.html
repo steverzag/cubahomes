@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace = "components/head"></div>
+</head>
+<body>
+    
+    <div class="container">
+        <form th:method="POST" th:action="'/prueba'" th:object="${usuario}">
+            <div class="form-group"> 
+              <label for="username">Nombre de Usuario o Contacto</label>
+              <input type="text" th:field="*{nombreUsuario}" class="form-control" name="username" id="username">
+              
+              <label for="password">Contrasena</label>
+              <input type="password"  th:field="*{contrasena}" class="form-control" name="password" id="password">
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="remember-me" id="remember-me">
+              <label class="form-check-label" for="remember-me">Recordarme</label>
+            </div>
+            <input type="hidden" th:field="*{role}" id="role">
+            <input type="hidden" id="contacto" th:field="*{contacto}">
+            <button type="submit" class="btn btn-primary">Entrar</button>
+          </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<h2 class="text-muted" th:text="${municipie.nombre}"></h2>
+<input type="hidden" id="username" th:value="${admin.nombreUsuario}">
+<form id="form-save" th:object="${municipie}"
+	th:action="'/admin/' + ${admin.nombreUsuario} + '/municipies'"
+	th:method="POST" class="form-group my-4">
+	<input type="hidden" th:field="*{idMunicipio}"> <label
+		for="municipie-name">Nombre</label> <input class="form-control"
+		type="text" name="municipie-name" id="municipie-name" autocomplete="off"
+		placeholder="Nombre" th:field="*{nombre}"> <small
+		class="text-muted">Utilice este campo para cambiar el nombre
+		del municipio</small>
+	
+	<div class="form-group mb-3">
+		<label for="select-province">Provincia</h3>
+		<select th:field="*{provincia}" value="0" id="select-province"
+			class="form-control">
+			<option value="0">---</option>
+			<option th:each="provincie: ${provinces}"
+					th:text="${provincie.nombre}"
+					th:value="${provincie.idProvincia}"></option>
+		</select>
+	</div>
+</form>
+<form th:if="${mode == 'municipie-single'}" id="form-delete"
+	th:action="'/admin/' + ${admin.nombreUsuario} + '/municipies/' + ${municipie.idMunicipio}"
+	th:method="DELETE"></form>
+<div>
+	<button class="btn btn-primary mr-4" type="submit" form="form-save">Guardar</button>
+	<button th:if="${mode == 'municipie-single'}" class="btn btn-danger" type="submit" form="form-delete">Eliminar</button>
+</div>

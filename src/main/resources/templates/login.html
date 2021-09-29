@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<div th:replace="components/head"></div>
+</head>
+
+<body>
+	<div class="container">
+		<form class="form-signin" th:method="POST" th:action=${action}>
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<p>
+				<label for="username" class="sr-only">Nombre de Usuario o
+					Contacto</label>
+					 <input type="text" id="username" name="username"
+					class="form-control" placeholder="Username" required=""
+					autofocus="">
+			</p>
+			<p>
+				<label for="password" class="sr-only">Contrasena</label> <small
+					id="emailHelp" class="form-text text-muted"><a
+					th:href="'/forgot-pass'">Ha olvidado su contrasena?</a></small> <input
+					type="password" id="password" name="password" class="form-control"
+					placeholder="Password" required="">
+			</p>
+			<p class="form-check">
+				<input type="checkbox" class="form-check-input" name="remember-me"
+					id="remember-me"> <label class="form-check-label"
+					for="remember-me">Recordarme</label>
+			</p>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+		</form>
+	</div>
+	<div class="container" th:if=${user}>
+		Primera vez en Cuba Homes?<a th:href="@{/register}"> Cree una
+			cuenta</a>
+	</div>
+</body>
+
+</html>

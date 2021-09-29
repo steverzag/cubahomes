@@ -1,0 +1,24 @@
+<div class="container align-center">
+	<h2 class="text-muted">Administradores</h2>
+	<table class="table my-4">
+		<thead class="bg-primary text-white">
+			<tr>
+				<th scope="col">Nombre</th>
+				<th scope="col">Contacto</th>
+				<th scope="col">Desde</th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="ad: ${admins}">
+				<td th:text="${ad.nombreUsuario}"></td>
+				<td th:text="${ad.contacto}"></td>
+				<td class="desde" th:data-desde="${ad.desde}"></td>
+				<td class="text-center"><a
+					class="btn btn-primary text-white px-4"
+					th:href="'/admin/' + ${admin.nombreUsuario} + '/administrators/' + ${ad.nombreUsuario}">Ver</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script src="/js/admins.js"></script>

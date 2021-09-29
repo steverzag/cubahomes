@@ -1,0 +1,28 @@
+<h2 class="text-muted"
+	th:text="'Admnistrador: ' + ${usuario.nombreUsuario}"></h2>
+
+<form id="user-form" th:object="${usuario}"
+	th:action="'/admin/' + ${admin.nombreUsuario} + '/administrators'"
+	th:method="PUT">
+	<input type="hidden" th:field="*{idUsuario}">
+	<div th:replace="components/user-information"></div>
+	<h4 class="mt-3">Roles</h4>
+	<div id="roles-div" class="p-4">
+		<div th:replace="components/admin-roles"></div>
+	</div>
+	<p class="h6 text-danger"></p>
+	<h4>Historial de Operaciones</h4>
+	<div th:replace="components/user-historial"></div>
+</form>
+<form id="user-form-delete" th:if="${readonly}"
+	th:action="'/admin/' + ${admin.nombreUsuario} + '/administrators/' + ${usuario.idUsuario}"
+	th:method="DELETE"></form>
+<div class="form-group" th:if="${readonly}">
+	<button type="button" id="btn-save" class="btn btn-primary" data-toggle="modal" data-target="#insertPasswordModal"
+		form="user-form">Guardar</button>
+	<button type="button" id="btn-delete" class="btn btn-danger" data-toggle="modal" data-target="#insertPasswordModal"
+		form="user-form-delete">Eliminar</button>
+</div>
+<div th:replace="components/modal-password"></div>
+<script src="/js/admin-single.js"></script>
+

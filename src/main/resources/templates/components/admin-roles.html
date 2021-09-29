@@ -1,0 +1,9 @@
+<div class="form-group" th:each="role, itemStat: *{roles}">
+	<input th:id="'check-role-' + ${role.role.toLowerCase()}"
+		class="check-role" type="checkbox"
+		th:checked="${authorities.contains(role)}"
+		th:onclick="'return '  + ${readonly}">
+		<label th:for="'input-role-' + ${role.role.toLowerCase()}"
+		th:text=${role.nombre}></label> <input type="hidden"
+		th:field="*{roles[__${itemStat.index}__].idRole}">
+</div>

@@ -1,0 +1,17 @@
+<h2 class="text-muted mt-4">Datos de Usuario</h2>
+<form action="" th:object="${usuario}">
+	<h2 class="text-muted" th:text="'Usuario ' + ${usuario.nombreUsuario}"></h2>
+    <div class="form-group my-3">
+    	<label for="nombreUsuario">Nombre</label>
+        <input type="text" class="form-control" id="nombreUsuario" readonly th:value="${usuario.nombreUsuario}" placeholder="Nombre">
+        <label for="contacto">Mail o Telefono</label>
+        <input type="text" class="form-control" id="contacto" readonly th:value="${usuario.contacto}">
+        <label for="desde">Usaurio Desde</label>
+        <input type="date" class="form-control" th:value="${usuario.desde}" id="desde" readonly>
+        <label for="ultimaAccion">Ultima Vez</label>
+        <input type="date" class="form-control" th:value="${usuario.ultimaAccion}" id="ultimaAccion" readonly>
+    </div>
+    
+    <div th:replace="components/anuncios-table"></div>
+    
+</form>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <div th:replace="components/head"></div>
+    
+</head>
+<body>
+    
+	<div th:replace="components/user-nav"></div>
+    <div class="container">
+        <div th:if="${mode} == 'new'">
+            <div th:replace="components/anuncios-new"></div>
+        </div>
+        <div th:if="${mode} == 'all'">
+            <div th:replace="components/anuncios-all"></div>
+        </div>
+        <div th:if="${mode} == 'single'">
+            <div th:replace="components/anuncios-new"></div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

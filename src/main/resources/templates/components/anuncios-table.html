@@ -1,0 +1,28 @@
+<h3 class="text-muted mt-4">Anuncios</h3>
+<table class="table my-4">
+	<thead class="bg-primary text-white text-center">
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Nombre</th>
+			<th th:if="${mode} == 'all'"scope="col">Usuario</th>
+			<th scope="col">Activo</th>
+			<th scope="col">Plan</th>
+			<th scope="col">Fecha de Vencimiento</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="anuncio: ${anuncios}">
+			<td th:text="${anuncios.indexOf(anuncio) + 1}"></td>
+			<td th:text="${anuncio.nombre}"></td>
+			<td th:if="${mode} == 'all'" th:text="${anuncio.usuario.nombreUsuario}"></td>
+			<td >
+				<span th:if="${anuncio.activo}" th:text="Si"></span>
+				<span th:if="${!anuncio.activo}" th:text="No"></span>
+			</td>
+			<td th:if="${anuncio.anuncioMetaData.plan} != null"
+				th:text="${anuncio.anuncioMetaData.plan.nombre}"></td>
+			<td th:data-date="${anuncio.anuncioMetaData.fechaVencimiento}"></td>
+		</tr>
+	</tbody>
+
+</table>

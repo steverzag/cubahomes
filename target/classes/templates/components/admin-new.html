@@ -1,0 +1,25 @@
+<form th:object="${usuario}" th:method="post" th:action="'/admin/' + ${admin.nombreUsuario} + '/administrators'">
+	<div class="form-group">
+		<input type="hidden" th:field="*{idUsuario}">
+		<label for="username">Nombre de Usuario</label> <input type="text" class="form-control" name="username"
+			id="username" th:field="*{nombreUsuario}">
+		<p class="h6 text-danger"></p>
+		<label for="mail">Correo o Telefono</label> <input type="email" class="form-control" name="mail" id="mail"
+			th:field="*{contacto}">
+		<p class="h6 text-danger"></p>
+		<label for="password">Contrasena</label>
+		<input type="password" class="form-control" name="password" id="password" th:value="*{contrasena}">
+		<p class="h6 text-danger"></p>
+		<label for="password-repeat">Repetir Contrasena</label> <input type="password" class="form-control"
+			name="password-repeat" id="password-repeat" th:value="*{contrasena}">
+		<p class="h6 text-danger"></p>
+		<input type="hidden" th:field="*{contrasena}" id="contrasena">
+
+	</div>
+	<div id="roles-div">
+		<div th:replace="components/admin-roles"></div>
+	</div>
+	<p class="h6 text-danger"></p>
+	<button type="submit" id="submit" class="btn btn-primary">Agregar</button>
+</form>
+<script src="/js/admin-new.js"></script>

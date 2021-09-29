@@ -1,0 +1,56 @@
+<link th:rel="stylesheet" th:href="@{/webjars/select2/css/select2.css}" />
+<link th:rel="stylesheet"
+	th:href="@{/webjars/select2/css/select2.min.css}" />
+<script th:src="@{/webjars/select2/js/select2.full.js}"></script>
+<script src="/js/province.js"></script>
+<h2 class="text-muted" th:text="${province.nombre}"></h2>
+<input type="hidden" id="username" th:value="${admin.nombreUsuario}">
+<form id="form-save" th:object="${province}"
+	th:action="'/admin/' + ${admin.nombreUsuario} + '/provinces'"
+	th:method="${method}" class="form-group my-4">
+	<input type="hidden" th:field="*{idProvincia}"> <label
+		for="province-name">Nombre</label> <input class="form-control"
+		type="text" name="province-name" id="province-name" autocomplete="off"
+		placeholder="Nombre" th:field="*{nombre}"> <small
+		class="text-muted">Utilice este campo para cambiar el nombre
+		de la provincia</small>
+	<div th:if="${mode == 'province-single'}">
+		<table class="table">
+			<thead class="bg-primary text-white">
+				<th scope="col">Municipio</th>
+				<th scope="col"></th>
+			</thead>
+			<tbody id="table-body">
+				<tr th:each="municipie, itemStat: *{municipios}">
+					<td th:text="${municipie.nombre}"></td>
+					<td>
+						<div>
+							<input type="hidden"
+								th:field="*{municipios[__${itemStat.index}__].idMunicipio}">
+							<input type="hidden"
+								th:field="*{municipios[__${itemStat.index}__].nombre}">
+							<button type="button" class="btn btn-warning mr-4 btn-del">Quitar</button>
+							<a class="btn btn-primary"
+								th:href="'/admin/' + ${admin.nombreUsuario} + '/municipies/' + ${municipie.idMunicipio}">Ver</a>
+						</div>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+
+		<label for="select-municipie">Agregar municipio</label> <select
+			value="0" id="select-municipie" class="form-control select2-single"
+			aria-placeholder="">
+		</select>
+		<button type="button" id="btn-add" class="btn btn-primary">Agregar</button>
+	</div>
+</form>
+<form th:if="${mode == 'province-single'}" id="form-delete"
+	th:action="'/admin/' + ${admin.nombreUsuario} + '/provinces/' + ${province.idProvincia}"
+	th:method="DELETE"></form>
+<div>
+	<button class="btn btn-primary mr-4" type="submit" form="form-save">Guardar</button>
+	<button th:if="${mode == 'province-single'}" class="btn btn-danger" type="submit" form="form-delete">Eliminar</button>
+</div>
+

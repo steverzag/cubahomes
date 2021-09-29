@@ -1,0 +1,10 @@
+<form class="form-group" th:action="${action}" th:method="PUT">
+    <input type="hidden" name="username" id="username" th:value="${usuario.nombreUsuario}">
+    <label for="contact">Nuevo Contacto</label>
+    <input class="form-control" type="mail" name="contact"
+    id="contact" autocomplete="off" placeholder="Nuevo Contacto">
+    <label for="actual-password">Contrasena</label>
+    <input class="form-control" type="password" name="actual-password" id="actual-password" placeholder="Contrasena">
+    <small class="text-muted">Deve ingresar su contrasena para que el cambio sea valido</small></br>
+    <button type="submit" class="btn btn-primary btn-form">Guardar</button>
+</form>

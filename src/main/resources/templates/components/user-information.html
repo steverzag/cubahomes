@@ -1,0 +1,5 @@
+<h6 th:text="'Correo: ' + ${usuario.contacto}"></h6>
+<h6 th:text="'Usuario desde: '" class="date" th:data-date="${usuario.desde}"></h6>
+<h6 th:if="${usuario.habilitado}" th:text="'Habilitado: Si'"></h6>
+<h6 th:if="${!usuario.habilitado}" th:text="'Habilitado: No'"></h6>
+<h6 th:text="'Ultima accion: '" class="date" th:data-date="${usuario.ultimaAccion}"></h6>

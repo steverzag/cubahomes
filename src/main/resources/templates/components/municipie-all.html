@@ -1,0 +1,23 @@
+<h2 class="text-muted">Provincias</h2>
+<table class="table my-4">
+	<thead class="bg-primary text-white">
+		<tr>
+			<th scope="col">#</th>
+			<th scope="col">Municipio</th>
+			<th scope="col">provincia</th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="municipie, item: ${municipies}">
+			<td th:text="${item.index + 1}"></td>
+			<td th:text="${municipie.nombre}"></td>
+			<td>
+				<div th:if="${municipie.provincia != null}" th:text="${municipie.provincia.nombre}"></div>
+			</td>
+			<td class="text-center"><a
+				class="btn btn-primary text-white px-4"
+				th:href="'/admin/' + ${admin.nombreUsuario} + '/municipies/' + ${municipie.idMunicipio}">Ver</a></td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,31 @@
+<input type="hidden" name="username" id="username" th:value="${usuario.nombreUsuario}">
+<div class="my-3">
+    <h4 class="text-muted">Nombre de usuario</h4>
+    <h5 th:text="${usuario.nombreUsuario}"></h5>
+    <a class="btn btn-primary" th:href="${usernameHref}">Cambiar el nombre de usuario</a>
+</div>
+<div class="my-3">
+    <form th:action="${passAction}" th:method="PUT" class="form-group" id="password-form">
+        <label for="actual-password">Contrasena actual</label>
+        <input class="form-control" type="password" name="actual-password" id="actual-password"
+            placeholder="Contrasena actual">
+        <label for="password">Nueva contrasena</label>
+        <input class="form-control" type="password" name="password" id="password" placeholder="Nueva contrasena">
+        <p class="h6 text-danger"></p>
+        <label for="password-repeat">Repita nueva contrsena</label>
+        <input class="form-control" type="password" name="password-repeat" id="password-repeat"
+            placeholder="Repita la nueva contrasena">
+        <p class="h6 text-danger"></p>
+        <button type="button" class="btn btn-primary btn-form" id="btn-password">Cambiar contrasena</button>
+    </form>
+</div>
+<div class="my-3">
+    <h4 class="text-muted">Contacto</h4>
+    <h5 th:text="${usuario.contacto}"></h5>
+    <a class="btn btn-primary" th:href="${contactHref}">Cambiar contacto</a>
+</div>
+<div class="my-3">
+    <form th:action="${delAction}" th:method="DELETE">
+        <button type="submit" class="btn btn-danger">Eliminar cuenta</button>
+    </form>
+</div>

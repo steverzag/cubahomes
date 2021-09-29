@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<div th:replace="components/head"></div>
+
+<body>
+	<div th:replace="components/nav-admin"></div>
+
+	<div th:switch="${mode}" class="container p-3">
+		<div th:case="'all'">
+			<div th:replace="components/profile"></div>
+		</div>
+		<div th:case="'username'">
+			<div th:replace="components/profile-username"></div>
+		</div>
+		<div th:case="'contact'">
+			<div th:replace="components/profile-contact"></div>
+		</div>
+	</div>
+</body>
+<script src="/js/profile.js"></script>
+</html>

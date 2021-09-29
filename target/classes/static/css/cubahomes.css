@@ -1,0 +1,32 @@
+.form-error{
+	border: 1px solid #F03;
+}
+ul.galery{
+	list-style: none;
+	width: 90%;
+	display: block;
+}
+ul.galery li{
+	float: left;
+	margin: 2.5%;
+	width: 20%;
+	position: relative;
+}
+ul.galery li .image-delete{
+	position: absolute;
+	left: 80%;
+	top: 80%;
+	background-color: aqua;
+	color: black;
+	transition: 0.3s;
+	
+}
+
+ul.galery li img{
+	cursor: pointer;
+	width: 100%;
+}
+
+ul.galery li .image-delete:hover{
+	transform: scale(1.4);
+}

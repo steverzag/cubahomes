@@ -1,0 +1,32 @@
+<div class="modal fade" id="editPlanModal" tabindex="-1" role="dialog" aria-labelledby="editPlanModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="editPlanModalLabel">Editar Plan</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+		  <form>
+			<div class="form-group">
+				<input type="hidden" id="editIdPlan">
+				<label for="editNombre">Nombre</label>
+				<input class="form-control" type="text" id="editNombre" autocomplete="off" placeholder="Nombre del Plan">
+				<label for="editMeses">Meses</label>
+				<input class="form-control" type="number" name="editMeses" id="editMeses" placeholder="Meses que Durara el Plan">
+				<label for="editSemanas">Semanas</label>
+				<input class="form-control" type="number" name="editSemanas" id="editSemanas" placeholder="Semanas que Durara el Plan">
+				<label for="editPrecio">Precio</label>
+				<input class="form-control" type="number" name="editPrecio" id="editPrecio" placeholder="Precio">
+			</div>
+		  </form>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" id="btn-editar-delete" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		  <button type="button" id="btn-editar-guardar" class="btn btn-primary">Guardar</button>
+		  <button type="button" id="btn-editar-eliminar" class="btn btn-danger">Eliminar</button>
+		</div>
+	  </div>
+	</div>
+  </div>

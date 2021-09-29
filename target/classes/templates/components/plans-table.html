@@ -1,0 +1,30 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Plan</th>
+			<th scope="col">Meses</th>
+			<th scope="col">Semanas</th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:for="plan: ${planes}">
+			<td th:text="${plan.nombre}"></td>
+			<td th:text="${plan.meses}"></td>
+			<td th:text="${plan.semanas}"></td>
+			<td><button class="btn btn-warning" value="${plan.idPlan}">Editar</button></td>
+		</tr>
+	</tbody>
+</table>
+
+<form>
+	<div class="form-group m-5">
+		<label for="nombre">Nombre</label>
+		<input class="form-control" type="text" id="nombre" autocomplete="off" placeholder="Nombre del Plan">
+		<label for="meses">Meses</label>
+		<input class="form-control" type="number" name="meses" id="meses" placeholder="Meses que Durara el Plan">
+		<label for="semanas">Meses</label>
+		<input class="form-control" type="number" name="semanas" id="semanas" placeholder="Semanas que Durara el Plan">
+		<button class="btn btn-primary my-3" type="submit">Agregar Plan</button>
+	</div>
+</form>

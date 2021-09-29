@@ -1,0 +1,13 @@
+<table class="table table-hover">
+    <thead class="bg-primary text-white text-center">
+        <th>Operacion</th>
+        <th>Fecha</th>
+    </thead>
+    <tbody>
+        <tr th:each="operacion : ${usuario.usuarioHistorial}"
+        th:value="${operacion.idUsuarioHistorial}">
+            <td th:text="${operacion.accion}"></td>
+            <td class="desde" th:data="${operacion.fecha}"></td>
+    </tr>
+    </tbody>
+</table>

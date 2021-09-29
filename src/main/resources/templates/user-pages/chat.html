@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <div th:replace="components/head"></div>
+    
+</head>
+<body>
+    
+	<div th:replace="components/user-nav"></div>
+    <div class="container">
+        <label for="message">Mensage</label>
+        <input type="text" class="form-control" id="message">
+        <button class="btn btn-primary" id="send">Send</button>
+    
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr><th>Mensages</th></tr>
+                </thead>
+                <tbody id="messages"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="/css/tagsinput.css">
+<script src="/js/tagsinput.js"></script>
+<script src="/js/typeahead.bundle.js"></script>
+<!--  <link rel="stylesheet" href="/webjars/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.css">-->
+<!--<script src="/webjars/typeahead.js/typeahead.min.js"></script>-->
+<form th:object="${anuncio}" th:method="${method}" th:action="'/user/' + ${usuario.nombreUsuario} + '/anounces'"
+	enctype="multipart/form-data">
+	<div class="form-group">
+		<input type="hidden" th:field="*{idAnuncio}">
+
+		<div th:object="${anuncio.inmueble}">
+			<input type="hidden" th:field="*{idInmueble}"> <label for="precio">Precio</label> <input type="number"
+				class="form-control" name="precio" id="precio" th:field="*{precio}">
+			<label for="provincia">Provincia</label> <select class="form-control" th:field="*{provincia}"
+				name="provincia" id="provincia">
+				<option value="0">---</option>
+				<option th:each="provincia: ${provincias}" th:value="${provincia.idProvincia}"
+					th:text="${provincia.nombre}"></option>
+			</select> <label for="municipio">Municipio</label> <select class="form-control" th:field="*{municipio}"
+				name="municipio" id="municipio">
+				<option value="0">---</option>
+				<option th:if="${municipios!=null}" th:each="municipio: ${municipios}"
+					th:value="${municipio.idMunicipio}" th:text="${municipio.nombre}">
+			</select> <label for="reparto">Reparto o Loacalidad</label> <input type="text" class="form-control"
+				name="reparto" id="reparto" th:field="*{reparto}"> <label for="metrosCuadrados">Metros
+				Cuadrados</label> <input type="number" class="form-control" name="metrosCuadrados" id="metrosCuadrados"
+				th:field="*{metrosCuadrados}"> <label for="strDescripcion">Descripcion</label>
+			<textarea name="strDescripcion" id="strDescripcion" class="form-control" cols="30" rows="10"
+				th:field="*{strDescripcion}"></textarea>
+		</div>
+		<label for="file">Photos</label>
+		<div id="files">
+			<input type="file" name="files" id="chooser" accept="image/*" multiple>
+		</div>
+		<ul class="galery">
+			<li th:each="photo, itemStat: *{fotos}" th:field="*{fotos}"><img th:src="@{'/' + ${photo.imgUrl}}"> <span
+					class="image-delete">del</span>
+				<input type="hidden" th:field="*{fotos[__${itemStat.index}__].idFoto}"> <input type="hidden"
+					th:field="*{fotos[__${itemStat.index}__].imgName}">
+				<input type="hidden" th:field="*{fotos[__${itemStat.index}__].imgUrl}"> <input type="hidden"
+					th:field="*{fotos[__${itemStat.index}__].anuncio}">
+			</li>
+		</ul>
+		<br style="clear: both;" />
+	</div>
+	<input type="text" data-role="tagsinput sometext" class="tw-typeahead" id="tagsinput" value="jQuery,Script,Net">
+	<select id="select-tags" data-role="tagsinput" multiple>
+		<option value="jQuery">jQuery</option>
+		<option value="Angular">Angular</option>
+		<option value="React">React</option>
+		<option value="Vue">Vue</option>
+
+	</select>
+	<button type="submit" id="submit" class="btn btn-primary" style="clear:both;">Aceptar</button>
+	<input type="hidden" th:field="*{usuario}"><input type="hidden" th:field="*{anuncioMetaData}">
+
+</form>
+
+<script src="/js/anounces-new.js"></script>

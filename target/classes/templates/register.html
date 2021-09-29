@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace = "components/head"></div>
+    <script src="/js/register.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <form th:object="${usuario}" th:method="post" th:action="@{/register}">
+            <div class="form-group"> 
+              <label for="username">Nombre de Usuario</label>
+              <input type="text" class="form-control" name="username" id="username" th:field="*{nombreUsuario}">
+              
+              <label for="contact">Correo</label>
+              <input type="email" class="form-control" name="mail" id="mail" th:field="*{contacto}">
+
+              <label for="password">Contrasena</label>
+              <input type="password" class="form-control" name="password" id="password" th:field="*{contrasena}">
+
+              <label for="password-repeat">Contrasena</label>
+              <input type="password" class="form-control" name="password-repeat" id="password-repeat">
+            </div>
+            
+                <button type="submit" id="submit" class="btn btn-primary">Registrarse</button>
+                <button type="button" id="button" class="btn btn-primary">Botom</button>
+          </form>
+    </div>
+</body>
+</html>

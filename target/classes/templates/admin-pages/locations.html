@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<div th:replace="components/head"></div>
+<body>
+	<div th:replace="components/nav-admin"></div>
+
+	<div class="container" th:switch="${mode}">
+		<div th:case="'all'" class="col-12">
+			<div th:replace="components/province-all"></div>
+		</div>
+		<div th:case="'province-single'" class="col-12">
+			<div th:replace="components/province-single"></div>
+		</div>
+		<div th:case="'province-new'" class="col-12">
+			<div th:replace="components/province-single"></div>
+		</div>
+		<div th:case="'municipie-all'" class="col-12">
+			<div th:replace="components/municipie-all"></div>
+		</div>
+		<div th:case="'municipie-single'" class="col-12">
+			<div th:replace="components/municipie-single"></div>
+		</div>
+		<div th:case="'municipie-new'" class="col-12">
+			<div th:replace="components/municipie-single"></div>
+		</div>
+	</div>
+</body>
+</html>

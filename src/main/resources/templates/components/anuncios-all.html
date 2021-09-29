@@ -1,0 +1,38 @@
+<div class="list-group row container">
+
+	<div class="card m-2" th:each="anuncio: ${anuncios}">
+
+		<div class="m-2 list-group-item card-body">
+			<div class="d-flex justify-content-between w-100">
+				<div>
+					<p th:if="${anuncio.anuncioMetaData.activo}" th:text="'Activo'"></p>
+					<p th:if="${!anuncio.anuncioMetaData.activo}" th:text="'Inactivo'"></p>
+					<span th:text="'Vistas: ' + ${anuncio.vistas}"></span>
+				</div>
+			</div>
+			<div class="mb-2">
+				<!--
+            <h3>Plan: <h3 th:text="${anuncio.plan.nombre}"></h3></h3>
+             -->
+				<p>
+					Fecha de Vencimiento: <span th:if="${fechaVencimiento!=null}"
+						th:text="${anuncio.anuncioMetaData.fechaVencimiento}"></span>
+				</p>
+				<div th:if="${admin == null}">
+					<a class="btn btn-primary float-right px-3"
+						th:href="'/user/' + ${usuario.nombreUsuario} + '/anounces/' + ${anuncios.indexOf(anuncio)}">Ver
+					</a>
+				</div>
+				<div th:if="${admin != null}">
+					<a class="btn btn-primary float-right px-3"
+						th:href="'/admin/' + ${admin.nombreUsuario} + '/anounces/' + ${anuncios.idAnuncio}">Ver
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+<script src="/js/anounces-all.js"></script>
